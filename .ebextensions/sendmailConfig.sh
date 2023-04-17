@@ -47,7 +47,7 @@ if test "${ary['MAIL_HOST']+isset}" && test "${ary['MAIL_USERNAME']+isset}" && t
             # make sure dependencies are installed
             yum -y install sendmail sendmail-cf m4 cyrus-sasl-plain
 
-            echo "AuthInfo:$HOST \"U:root\" \"I:$USERNAME\" \"P:$PASSWORD\" \"M:LOGIN\"" > /etc/mail/authinfo
+            echo "AuthInfo:$HOST \"U:root\" \"I:$USERNAME\" \"P:$PASSWORD\" \"M:LOGIN PLAIN\"" > /etc/mail/authinfo
             makemap hash /etc/mail/authinfo.db < /etc/mail/authinfo
             echo "Connect:$HOST RELAY" > /etc/mail/access
             makemap hash /etc/mail/access.db < /etc/mail/access
